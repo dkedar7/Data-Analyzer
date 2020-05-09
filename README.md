@@ -1,4 +1,4 @@
-# Data-Analyzer
+# Data Analyzer
 
 [![<ORG_NAME>](https://circleci.com/gh/dkedar7/Data-Analyzer.svg?style=svg)](https://circleci.com/gh/dkedar7/Data-Analyzer)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
