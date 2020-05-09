@@ -18,15 +18,15 @@ For each column, the following statistical measures are generated:
 
 ## Installation
 
-You can clone this repository by running
+#### Step 1. Clone this repository by running
 
     git clone https://github.com/dkedar7/Data-Analyzer
-Create a virtual environement by running
+    
+#### Step 2. Create a virtual environement by running
 
     python -m venv DataAnalyzer
         
-Active this environment
-Windows:
+#### Step 3. Active this environment, on Windows:
 
     TesterMatchingApp\Source\Activate
 
@@ -34,13 +34,34 @@ MacOS or Linux:
 
     source TesterMatchingApp/bin/activate
     
-Open the directory and install dependencies
+#### Step 4. Open the directory and install dependencies
 
     cd DataAnalyzer/
     pip install -r requirements.txt
     
-Launch the web application
+#### Step 5. Launch the web application
 
     python run.py
     
-Use `localhost:8080` to interact with the application
+Use `localhost:8080` to interact with the application.
+
+## About the demo deployment
+
+The [demo deployment](https://data-analyzer-hpn4y2dvda-uc.a.run.app/) utilizes Google Build to containerize the application, Google Container Registry for storing and managing a container and Google Cloud Run to deploy it as a web endpoint.
+
+![Cloud Run Architecture](https://github.com/dkedar7/Data-Analyzer/blob/master/Analyzer/assets/architecture.png?raw=true)
+
+[More about Google Cloud Run](https://cloud.google.com/run/docs/)
+
+## Limitations
+* Data Analyzer currently only supports tabular data, in either a .csv, .xlsx, or .xls formats
+* Upload fails if there are any inconsistencies with the input file
+* The app's ability to handle large data depends on memory allocated by the host machine. The [demo deployment](#https://data-analyzer-hpn4y2dvda-uc.a.run.app/) of the app may crash if memory exceeds
+* Pandas Profiling can sometimes fail to auto-inter the `datetime` datatype.
+
+## License
+Data analyzer uses the [MIT license](https://github.com/dkedar7/Data-Analyzer/blob/master/LICENSE).
+
+## Dependencies
+
+You need [Python 3](https://python3statement.org/) to run this application. Other dependencies can be found in the [requirements.txt](https://github.com/pandas-profiling/pandas-profiling/blob/master/requirements.txt) file.
