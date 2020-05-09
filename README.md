@@ -1,7 +1,10 @@
 # Data-Analyzer
 
+[![<ORG_NAME>](https://circleci.com/gh/dkedar7/Data-Analyzer.svg?style=svg)](https://circleci.com/gh/dkedar7/Data-Analyzer)
 ![Data Analyzer Demo](https://github.com/dkedar7/Data-Analyzer/blob/master/Analyzer/assets/Demo.png?raw=true)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![GitHub Pipenv locked dependency version](https://img.shields.io/github/pipenv/locked/dependency-version/dkedar7/Data-Analyzer/flask)
+![GitHub Pipenv locked dependency version](https://img.shields.io/github/pipenv/locked/dependency-version/dkedar7/Data-Analyzer/dash)
 
 Data Analyzer is a web application built using Dash and Flask on Python that lets you analyze tabular data spreadsheets using [Pandas Profiler](https://github.com/pandas-profiling/pandas-profiling). It creates a report to describe each column in the tabular data using some commonly used statistical measures. The app also allows users to download this generated HTML report. Use the deployed application [here](https://data-analyzer-hpn4y2dvda-uc.a.run.app/) and follow these [steps](#Installation) to deploy this app locally.
 
