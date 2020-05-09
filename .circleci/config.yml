@@ -1,3 +1,4 @@
+
 version: 2.1
 
 orbs:
@@ -16,3 +17,8 @@ jobs:
             sudo pip install pipenv
             pipenv install
           name: Install
+
+workflows:
+  main:
+    jobs:
+      - build-and-test
