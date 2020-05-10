@@ -17,6 +17,7 @@ jobs:
           name: Install
       - run:
           command: |
+            pipenv shell
             cd Analyzer/
             python run.py
             STATUS=$(curl -I http://localhost:8080/ | head -n 1|cut -d$' ' -f2)
