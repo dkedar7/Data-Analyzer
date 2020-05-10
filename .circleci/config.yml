@@ -17,9 +17,8 @@ jobs:
           name: Install
       - run:
           command: |
-            pipenv shell
             cd Analyzer/
-            python run.py
+            pipenv run python run.py
             STATUS=$(curl -I http://localhost:8080/ | head -n 1|cut -d$' ' -f2)
             if [ "$STATUS" != "200" ]; then
               echo "Error Deploying App: $GH_STATUS]"
