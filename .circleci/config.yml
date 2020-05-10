@@ -15,16 +15,16 @@ jobs:
             sudo pip install pipenv
             pipenv install
           name: Install
-      - run:
-          command: |
-            cd Analyzer/
-            pipenv run python run.py
-            STATUS=$(curl -I http://localhost:8080/ | head -n 1|cut -d$' ' -f2)
-            if [ "$STATUS" != "200" ]; then
-              echo "Error Deploying App: $GH_STATUS]"
-              exit 1
-            fi
-          name: Deploy Test
+      # - run:
+      #     command: |
+      #       cd Analyzer/
+      #       pipenv run python run.py
+      #       STATUS=$(curl -I http://localhost:8080/ | head -n 1|cut -d$' ' -f2)
+      #       if [ "$STATUS" != "200" ]; then
+      #         echo "Error Deploying App: $GH_STATUS]"
+      #         exit 1
+      #       fi
+      #     name: Deploy Test
 
 workflows:
   main:
