@@ -14,7 +14,7 @@ navbar = dbc.NavbarSimple(
             [
                 html.A(
                     html.I(className = "fa-3x fab fa-github", style={'color':'#ffffff'}),
-                href = "https://github.com/dkedar7/Web-Apps/tree/master/Pandas%20Profiler%20App", target="_blank",
+                href = "https://github.com/dkedar7/Data-Analyzer", target="_blank",
                 className="mx-3"
                     ),
                     html.A(
@@ -191,7 +191,7 @@ footer = dbc.Row(
                 html.Span(
                     html.A(
                         html.I(className="fa-3x fab fa-github", style={"color":"#ffffff"}),
-                        href="https://github.com/dkedar7/Web-Apps/tree/master/Pandas%20Profiler%20App",
+                        href="https://github.com/dkedar7/Data-Analyzer",
                         target = "_blank"
                     ),
                 ),
