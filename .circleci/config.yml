@@ -1,60 +1,32 @@
+
 version: 2.1
+
 orbs:
-  gcp-gcr: circleci/gcp-gcr@0.6.1
-  cloudrun: circleci/gcp-cloud-run@1.0.0
+  python: circleci/python@0.2.1
+
 jobs:
-  build_test:
+  build-and-test:
     docker:
-      - image: circleci/python:3.6.4
+      - image: circleci/python:3.6.4 # every job must define an image for the docker executor and subsequent jobs may define a different image.
     steps:
       - checkout
       - run:
-          name: Install Python Dependencies
           command: |
-            echo 'export PATH=~$PATH:~/.local/bin' >> $BASH_ENV && source $BASH_ENV
             sudo pip install pipenv
             pipenv install
-      # - run:
-      #     name: Run Tests
-      #     command: |
-      #       pytest
-  build_push_image_cloud_run_mangaged:
-    docker:
-      - image: circleci/python:3.7.4
-    steps:
-      - checkout
-      - setup_remote_docker:
-          docker_layer_caching: false
+          name: Install
       - run:
-          name: Build app binary and Docker image
           command: |
-            echo 'export PATH=~$PATH:~/.local/bin' >> $BASH_ENV
-            echo ${GCP_PROJECT_KEY} | base64 --decode --ignore-garbage > $HOME/gcloud-service-key.json
-            echo 'export GOOGLE_CLOUD_KEYS=$(cat $HOME/gcloud-service-key.json)' >> $BASH_ENV
-            echo 'export TAG=${CIRCLE_SHA1}' >> $BASH_ENV
-            echo 'export IMAGE_NAME=dataanalyzer' >> $BASH_ENV && source $BASH_ENV
-            cd Analyzer
-            pip install --user -r requirements.txt
-            # pyinstaller -F hello_world.py
-            docker build -t us.gcr.io/$GOOGLE_PROJECT_ID/$IMAGE_NAME -t us.gcr.io/$GOOGLE_PROJECT_ID/$IMAGE_NAME:$TAG .
-      - gcp-gcr/gcr-auth:
-          gcloud-service-key: GOOGLE_CLOUD_KEYS
-          google-project-id: GOOGLE_PROJECT_ID
-          google-compute-zone: GOOGLE_COMPUTE_ZONE
-      - gcp-gcr/push-image:
-          google-project-id: GOOGLE_PROJECT_ID
-          registry-url: "us.gcr.io"
-          image: $IMAGE_NAME
-      - cloudrun/deploy:
-          platform: "managed"
-          image: "us.gcr.io/$GOOGLE_PROJECT_ID/$IMAGE_NAME"
-          service-name: "orb-gcp-cloud-run"
-          region: $GOOGLE_COMPUTE_ZONE
-          unauthenticated: true
+            cd Analyzer/
+            python run.py
+            STATUS=$(curl -I http://localhost:8080/ | head -n 1|cut -d$' ' -f2)
+            if [ "$STATUS" != "200" ]; then
+              echo "Error Deploying App: $GH_STATUS]"
+              exit 1
+            fi
+          name: Deploy Test
+
 workflows:
-  build_test_deploy:
+  main:
     jobs:
-      - build_test
-      - build_push_image_cloud_run_mangaged:
-          requires:
-            - build_test
+      - build-and-test
