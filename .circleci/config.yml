@@ -36,7 +36,7 @@ jobs:
             cd Analyzer
             pip install --user -r requirements.txt
             # pyinstaller -F hello_world.py
-            docker build -t us.gcr.io/$GOOGLE_PROJECT_ID/$IMAGE_NAME -t us.gcr.io/$GOOGLE_PROJECT_ID/$IMAGE_NAME:$TAG .
+            docker build -t us.gcr.io/$GOOGLE_PROJECT_ID/dataanalyzer -t us.gcr.io/$GOOGLE_PROJECT_ID/dataanalyzer:$TAG .
       - gcp-gcr/gcr-auth:
           gcloud-service-key: GOOGLE_CLOUD_KEYS
           google-project-id: GOOGLE_PROJECT_ID
