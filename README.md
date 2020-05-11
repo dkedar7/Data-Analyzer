@@ -32,15 +32,15 @@ For each column, the following statistical measures are generated:
         
 #### Step 3. Active this environment, on Windows:
 
-    TesterMatchingApp\Source\Activate
+    DataAnalyzer\Source\Activate
 
 MacOS or Linux:
 
-    source TesterMatchingApp/bin/activate
+    source DataAnalyzer/bin/activate
     
 #### Step 4. Open the directory and install dependencies
 
-    cd DataAnalyzer/
+    cd Analyzer/
     pip install -r requirements.txt
     
 #### Step 5. Launch the web application
