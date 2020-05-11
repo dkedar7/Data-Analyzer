@@ -1,6 +1,6 @@
 # Data Analyzer
 
-[![<ORG_NAME>](https://circleci.com/gh/dkedar7/Data-Analyzer.svg?style=svg)](https://circleci.com/gh/dkedar7/Data-Analyzer)
+[![CircleCI](https://img.shields.io/circleci/build/github/dkedar7/Data-Analyzer)](https://circleci.com/gh/dkedar7/Data-Analyzer)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![GitHub Pipenv locked dependency version](https://img.shields.io/github/pipenv/locked/dependency-version/dkedar7/Data-Analyzer/flask)
 ![GitHub Pipenv locked dependency version](https://img.shields.io/github/pipenv/locked/dependency-version/dkedar7/Data-Analyzer/dash)
