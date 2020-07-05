@@ -61,7 +61,7 @@ The [demo deployment](https://data-analyzer-hpn4y2dvda-uc.a.run.app/) utilizes G
 * Data Analyzer currently only supports tabular data, in either a .csv, .xlsx, or .xls formats
 * Upload fails if there are any inconsistencies with the input file
 * The app's ability to handle large data depends on memory allocated by the host machine. The [demo deployment](#https://data-analyzer-hpn4y2dvda-uc.a.run.app/) of the app may crash if memory exceeds
-* Pandas Profiling can sometimes fail to auto-inter the `datetime` datatype.
+* Pandas Profiling can sometimes fail to auto-infer the `datetime` datatype.
 
 ## License
 Data analyzer uses the [MIT license](https://github.com/dkedar7/Data-Analyzer/blob/master/LICENSE).
